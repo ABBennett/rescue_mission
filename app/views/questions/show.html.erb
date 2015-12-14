@@ -1,6 +1,9 @@
 <h1>
 <%= @question.name %>
 </h1>
+<h5>
+  <%= link_to 'All Questions', questions_path %>
+</h5>
 <br>
 <p>
   <%= @question.description %>

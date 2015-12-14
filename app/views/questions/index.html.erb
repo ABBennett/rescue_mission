@@ -1,13 +1,13 @@
 
-<h1>All qweschuns</h1>
-<br>
+<h1>Questions</h1>
 <%= link_to "Post a Question", new_question_path%>
+<br>
+<br>
 
 <ul>
   <% @questions.each do |question| %>
     <p>
       <%= link_to question.name, question_path(question) %>
     </p>
-    <br>
   <% end %>
 </ul>

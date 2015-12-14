@@ -4,10 +4,14 @@ feature "posts a new question" do
   scenario "posts an invalid question and sees error messages" do
     visit new_question_path
     expect(page).to have_content("Post a Question")
+    fill_in('Name', :with => 'What am I doing?')
 
     click_button('Create Question')
-    expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Description can't be blank")
+    click_link("Back")
+
+    expect(page).to have_content("Questions")
+    expect(page).to have_no_content("What am I doing?")
   end
 
   scenario "posts a valid question and sees no error messages" do

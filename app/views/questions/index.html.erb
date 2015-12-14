@@ -1,0 +1,12 @@
+<h1>All qweschuns</h1>
+<br>
+<br>
+
+<ul>
+  <% @questions.each do |question| %>
+    <p>
+      <%= question.name %>
+    </p>
+    <br>
+  <% end %>
+</ul>

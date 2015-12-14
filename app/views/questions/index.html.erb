@@ -1,11 +1,12 @@
+
 <h1>All qweschuns</h1>
 <br>
-<br>
+<%= link_to "Post a Question", new_question_path%>
 
 <ul>
   <% @questions.each do |question| %>
     <p>
-      <%= question.name %>
+      <%= link_to question.name, question_path(question) %>
     </p>
     <br>
   <% end %>

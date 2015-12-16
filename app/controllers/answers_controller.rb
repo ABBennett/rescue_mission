@@ -20,7 +20,6 @@ class AnswersController < ApplicationController
       else
         flash.now[:notice] = "Answer was not created"
         render 'questions/show'
-
       end
 
 

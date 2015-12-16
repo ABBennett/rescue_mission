@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   def show
-    # @question = Question.where(id: params[:id])
+    @question = Question.find(params[:id])
     # @answer = Answer.find(params[:id])
   end
 
@@ -15,17 +15,15 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.question = @question
 
-
-
-    respond_to do |format|
       if @answer.save
-        format.html { redirect_to @question, notice: 'Answer was successfully created.' }
-        format.json { render 'questions/show', status: :created, location: @question }
+        redirect_to @question, notice: 'Answer was successfully created.'
       else
-        format.html { render 'questions/show' }
-        format.json { render json: @answer.errors, status: :unprocessable_entity }
+        flash.now[:notice] = "Answer was not created"
+        render 'questions/show'
+
       end
-    end
+
+
   end
 
   private

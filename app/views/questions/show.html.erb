@@ -1,9 +1,10 @@
 <h1>
 <%= @question.name %>
 </h1>
+
 <h5>
   <%= link_to 'All Questions', questions_path %>
-  <%= link_to 'Edit this Question', edit_question_path %>
+  <%= link_to 'Edit this Question', edit_question_path(@question) %>
 </h5>
 <br>
 <h3>Description</h3>
@@ -16,4 +17,4 @@
   <p><%= answer.description %></p>
 <% end %>
 
-<%= render "answers/new" %>
+<%= render "answers/form" %>

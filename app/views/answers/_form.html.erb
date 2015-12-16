@@ -1,7 +1,7 @@
 
 <h1> Post an Answer </h1>
 
-<%= form_for [@question, @answer] do |f| %>
+<%= form_for [@question, @answer], :html => {class: 'answer_form'} do |f| %>
 <% f.hidden_field( @question, :value => params[:id]) %>
   <% if @answer.errors.any? %>
     <div id="error_explanation">

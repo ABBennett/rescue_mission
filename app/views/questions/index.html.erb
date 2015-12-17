@@ -3,7 +3,9 @@
 <h1>Questions</h1>
 <br>
 <br>
-
+<% if current_user %>
+<%= current_user.email %>
+<% end %>
 <ul>
   <% @questions.each do |question| %>
     <p>

@@ -16,7 +16,11 @@
 <%= render "layouts/topbar" %>
 <%= render "layouts/flash" %>
   <body>
-
+    <% if current_user %>
+      <%= link_to "Sign out", "sign_out" %>
+      <% else %>
+     <a href="/auth/facebook">FACEBOOK LOGIN</a>
+<% end%>
     <%= yield %>
 
   </body>

@@ -12,6 +12,26 @@ textarea {
 
 form input[type='text'] {
    width: 200px;
+   border-radius: 5px;
  }
 
- 
+ .question {
+   border-radius: 30px;
+ }
+
+ form input[type='text_area'] {
+    border-radius: 5px;
+  }
+
+form input[type='submit'] {
+   border-radius: 25px;
+ }
+
+.button_submit {
+  width: 20%;
+  height: 30px;
+  background-color: #333333;
+  border-style: hidden;
+  border-radius: 25px;
+  color: white;
+}

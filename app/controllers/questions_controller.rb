@@ -5,16 +5,24 @@ class QuestionsController < ApplicationController
 
   def show
     # @question = Question.where(id: params[:id])
+    @user_id = current_user.id
     @question = Question.find(params[:id])
     @answer = Answer.new
   end
 
   def new
-    @question = Question.new
+    if current_user.nil?
+      redirect_to '/', notice: 'Please login to post a question'
+    else
+      @question = Question.new
+      @user_id = current_user.id
+    end
   end
 
   def create
-    @question = Question.new(question_params)
+    binding.pry
+    @user_id =  current_user.id
+    @question = Question.new(name: params[:name], description: params[:description], user_id: current_user.id)
 
     respond_to do |format|
       if @question.save
@@ -54,6 +62,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:name, :description)
+    params.require(:question).permit(:name, :description, )
   end
 end
